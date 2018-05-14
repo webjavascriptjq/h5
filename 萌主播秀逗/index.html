@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+声明文档类型：html 符合w3c统一标准规范
+为什么要声明？
+每个浏览器对html css js都有自己的编译模式，就容易造成同一套代码在不同浏览器有不同的效果
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: relative;
+            width: 490px;
+            height: 700px;
+            margin: auto;
+        }
+        .person{
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            width: 205px;
+            height: 365px;
+        }
+        .dialog{
+            position: absolute;
+            bottom: 205px;
+            left: 27px;
+            width: 280px;
+            height: 150px;
+            text-align: center;
+            line-height: 170px;
+            font-size: 16px;
+            color: #666;
+            background: url("images/0.png");
+            background-position: 0 -2550px;/*显示图片的哪一个部分：x轴 y轴*/
+        }
+        #hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="person">
+            <img src="images/0.gif" id="img">
+        </div>
+        <div class="dialog"><span id="hover">亲，千万别忘了注册，爱你哟！！！</span></div>
+    </div>
+
+    <script type="text/javascript">
+        var oSpan=document.getElementById('hover');
+        var oImg=document.getElementById('img');
+        var sum=1;  //用数字保存点击的次数
+        var onOff=true;  //做一个开关来保存按钮的点击状态（能不能点击）
+        var timer =null;
+        oSpan.onclick=function () {  //点击实现图片切换 改变图片路径
+            if(onOff)
+            {
+                if(sum == 0)
+                {
+                    oImg.src='images/0.gif';
+                    sum++;
+                }else if(sum == 1){
+                    oImg.src='images/1.gif';
+                    sum++;
+                }else if(sum == 2){
+                    oImg.src='images/2.gif';  //当显示为这张图片的时候，两秒之内再次点击不会发生变化
+                    sum=1;
+                    onOff=false;
+                    pause();
+                }
+                //console.log(sum);
+            }else if( sum == 2 && !onOff ){
+                clearTimeout(timer);
+                pause();
+            }
+        };
+        function pause() {
+            timer=setTimeout(function () {
+                oImg.src='images/0.gif';
+                onOff=true;
+            },2000);
+        }
+    </script>
+</body>
+</html>
