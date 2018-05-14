@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<!--大概思路：1.文本框里有文本（进行判断）-->
+<body>
+
+<!--json又叫对象 字面量对象 键值对 哈希表-->
+
+<img src="image/img.png" alt="" class="title">
+<div class="show">
+    <input type="text" id="text" title="">
+    <div class="but">
+        百度一下
+    </div>
+    <div class="search"><!--搜索框：因为li不确定，所以宽高自适应-->
+        <ul class="ul">
+
+        </ul>
+    </div>
+</div>
+
+<!--跨域：为了获取数据，准确的说是获取别人的数据，就可以通过script的src属性去获取-->
+<!--http://suggestion.baidu.com/su?wd=123&cb=Web：“wd”代表关键字，这个不能改“123”代表属性，而“cb”也是属性，“Web”这个参数可以随便改-->
+<script type="text/javascript">
+    /*1.获取文本内容，只要搜索内容不为空，搜索框就会出现*/
+    /*1.获取文本内容*/
+    /*2.敲击键盘，可能会有内容*/
+    var oText=document.getElementById("text");
+    var oSea=document.getElementsByClassName('search')[0];
+    var oUl=document.getElementsByClassName('ul')[0];
+    oText.onKeyUp=function () {
+        var val=this.value;  /*获取文本框的值*/
+        //隐式转换的问题  if只会把括号里的东西隐式的转换成布尔值  它只能判断布尔值而已  空值会隐式转换为false  有值会转换为true
+        /*if(val)
+        {
+            for (var i = 0; i< oSea.length;i++) {
+                oSea.style.display='block';
+            }
+
+        }else{
+            for (var i = 0; i< oSea.length;i++) {
+                oSea.style.display='none';
+            }*/
+            val?oSea.style.display='block':oSea.style.display='none';
+            var os=document.createElement('script');
+            os.src= 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+val+'&cb=Xiao';
+            document.body.appendChild(os);
+    };
+    /*重写script访问链接所返回的函数  数据就在这个函数的参数内{name:"xiaoli",age:"22"}*/
+    function Xiao(mjson) {  //json形参：为了看到里面的东西
+        //console.log('json.s.constructor'); //constructor：可以查看归于哪种基本数据类型
+        //console.log('json');
+        oUl.innerHTML='';/*ul要清空，因为li每一次都会获取关键字，还会不停地依次往后添加*/
+        for(var i=0; i<mjson.s.length; i++)
+        {
+            var oLi=document.createElement('li');
+            oLi.innerHTML='<a href="https://www.baidu.com/s?wd='+mjson.s[i]+'">'+mjson.s[i]+'</a>';
+            oUl.appendChild('oLi');
+        }
+    }
+</script>
+</body>
+</html>
