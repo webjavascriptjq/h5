@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--gbk：支持港澳台的繁体中文-->
+    <!--img：inline-block-->
+    <!--flex弹性盒模型 CSS3 flex要加在外层容器上 加在父元素上-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            color: #fff;
+            font-family: '楷体';
+            font-size: 18px;
+        }
+        #wrap{
+            display: flex; /*开启弹性盒模型*/
+            justify-content: space-around;/*内部元素横向排列方式 内容左右均分*/
+            align-items: center;/*内部元素纵向排列方式 内容上下均分*/
+            width: 960px;
+            height: 360px;
+            margin: 100px auto;
+        }
+        #wrap div{
+            width: 430px;
+            height: 320px;
+            background-image: url(images/1.jpg);
+            border-radius:5px;
+            box-shadow: 0 0 9px #222; /*横向位移 纵向位移 阴影大小*/
+        }
+        #wrap div h3{
+            margin: 240px 0 0 20px;
+            transition: all .5s;
+        }
+        #wrap div p{
+            margin: 20px 0 0 20px;
+            opacity: 0;
+            transition: all .5s;
+        }
+        #wrap div:hover h3{
+            margin: 200px 0 0 20px;
+        }
+        #wrap div:hover p{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div>
+            <h3>什么是成长</h3>
+            <p>成长是你意识到你要忍受孤独，不是一时的，而是无处不在的孤独。</p>
+        </div>
+        <div>
+            <h3>什么是梦想</h3>
+            <p>不只是为了单纯的活着,而是渴望成就自己的一番事业，不希望于虚迷缥缈的来生。</p>
+        </div>
+    </div>
+
+</body>
+</html>
