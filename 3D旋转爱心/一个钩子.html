@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 160px;
+            border: 2px solid red;
+            margin: 100px auto;
+            border-radius: 50% 50% 0/40% 50% 0;
+            border-bottom: 0;
+            border-left: 0;/*设置完border-radius，再把它的下边框、左边框都设为0，这样钩子成型*/
+            transform: rotateZ(45deg);/*再把钩子往左边倾斜一点，让它围绕z轴旋转*/
+            /*最后再用js生成36个钩子，让它围绕着它自己本身的中心进行旋转*/
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
