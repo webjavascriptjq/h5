@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    浮动也会脱离文档流
+    定位
+        固定定位：脱离文档流，上面写满了会往下走，相对于浏览器窗口定位，会把元素固定到浏览器窗口的某个位置
+        相对定位 不脱离文档流
+        绝对定位 脱离文档流 除固定定位之外
+
+        需要定位的元素设置为绝对定位，然后把需要定位元素的参照物设置为相对定位
+
+    -->
+    <!--
+    onclick：JS的写法
+    click：jquery的写法
+    -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .but{
+            color: #000;
+            text-decoration: none;
+        }
+        .bg{
+            display: none;
+            position: fixed;/*使其固定到浏览器窗口*/  /*固定定位：以浏览器作为参照物*/
+            left: 0;
+            top: 0;
+            width: 100%;/*以浏览器为参照物*/
+            height: 100%;
+            background: rgba(0,0,0,0.5);/*设置透明色*/
+        }
+        .dlk{
+            display: none;
+            position: fixed;
+            /*left: 50px;
+            top: 100px;*/
+            width: 600px;
+            height: 350px;
+            background: #fff;
+        }
+        .dlk h3{
+            height: 40px;
+            background: #ff9900;
+            color: #fff;
+            line-height: 40px;/*把文字上下居中*/
+            text-indent: 20px;/*首行缩进*/
+            cursor: move;
+        }
+        .dlk h3 .close{
+            display: block;
+            width: 17px;
+            height: 17px;
+            background: url("images/close.png");
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .dlk h3 .close:hover{
+            background: url("images/close.png") center bottom  no-repeat;
+        }
+        .dlk .txt{
+            margin-top: 10px;
+            padding: 0 20px;
+            font-size: 12px;
+            color: #666;
+        }
+        .txt img{
+            width: 35px;
+            height: 35px;
+        }
+        .dlk form p{
+            width: 300px;
+            height: 35px;
+            line-height: 35px;
+            margin: 20px auto 0;
+        }
+        .dlk form p input{
+            width: 260px;
+            height: 35px;
+            margin-left:5px;
+            border: 1px solid #ddd;
+            float: right;
+        }
+        .sub{
+            border: none;
+            background: url("images/but_bg1.jpg");
+        }
+    </style>
+</head>
+<body>
+<a class="but" href="javascript:">登录</a>
+<div class="bg">
+</div>
+<!--登陆框-->
+<div class="dlk">
+    <h3>
+        用户登录
+        <i class="close"></i>
+    </h3>
+    <p class="txt">
+        <img src="images/new.png" alt="icon" align="absmiddle" ><!--align:'absmiddle'图片和后面文字的对齐方式:绝对居中-->
+        号外！我的DIY主题管理功能上线了！即刻起，登录360手机美化，可以将您制作的DIY主题保存到360美化云端，还可以使用我的DIY主题管理等高级功能!
+    </p>
+    <form action="http://localhost:63342/%E5%BC%B9%E7%AA%97/index.html?" method="post">
+        <p class="Id">
+            账号
+            <input type="text" title="">
+        </p>
+        <p class="pwd">
+            密码
+            <input type="password" title="">
+        </p>
+        <p class="Dl">
+            <input type="submit" value="" class="sub">
+        </p>
+    </form>
+</div>
+
+<script src="jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $('.but').click(function () {
+        //点击背景显示
+        $('.bg').show();
+        //点击登录框显示
+        $('.dlk').show();
+        auto();
+    });
+    $('.close').click(function () {
+        //点击背景消失
+        $('.bg').hide();
+        //点击登录框消失
+        $('.dlk').hide();
+    });
+    //登录框居中
+    function auto() {
+        //找到浏览器宽度 高度
+        var _w_w=$(window).width();
+        var _w_h=$(window).height();
+        //浏览器一半减去登录框一半
+        $(".dlk").css({
+            left:_w_w/2 - $(".dlk").width()/2,
+            top:_w_h/2 - $(".dlk").height()/2
+        })
+    }
+    //动态改变浏览器窗口大小
+    $(window).resize(function () {
+        auto();
+    });
+    //拖动登录框
+    $('.dlk h3').mousedown(function (e) {
+        //得到鼠标坐标
+        var L=e.clientX;
+        var T=e.clientY;
+        //得到登陆框坐标
+        var _l=$('.dlk').offset().left;
+        var _t=$('.dlk').offset().top;
+        var x=L-_l;
+        var y=T-_t;
+
+        //鼠标移动
+        $(document).mousemove(function (e) {
+            var L=e.clientX;
+            var T=e.clientY;
+            var n_l=L-x;
+            var n_t=T-y;
+            $(".dlk").css({
+                left:n_l,
+                top:n_t
+            });
+        });
+        //鼠标松开
+        $(document).mouseup(function () {
+            $(document).unbind('mousemove');  //解绑
+            $(document).unbind('mosueup');
+            return false;
+        })
+    })
+</script>
+</body>
+</html>

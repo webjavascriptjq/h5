@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<html lang="en">
+	<head>
+		<!--声明当前页面的编码格式 国际编码 UTF-8 中文编码 GBK-->
+		<meta charset="UTF-8">
+		<!--声明当前页面的三要素 seo -->
+		<meta name="Keywords" content="关键词">
+		<meta name="Description" content="描述">
+		<title>前端页面的学习</title>
+		<!--样式css 修饰 衣服 化妆品-->
+		<style>
+		*{
+			margin:0;/*外边距*/
+			padding:0;/*内边距*/
+		}
+		.but{
+			color:#000;
+			text-decoration:none;
+		}
+		.bg{
+			width:100%;
+			height:100%;
+			background:rgba(0,0,0,0.5);
+			position:fixed;/*固定定位*/
+			left:0;
+			top:0;
+			display:none;
+		}
+		.dlk{
+			width:600px;
+			height:350px;
+			background:#fff;
+			position:fixed;
+			display:none;
+		}
+		.dlk h3{
+			height:40px;
+			background:#ff9900;
+			color:#fff;
+			line-height:40px;
+			text-indent:20px;
+			cursor:move;/*移动形状*/
+		}
+		.dlk h3 .colose{
+			display:block;/*把行内元素转变为块元素*/
+			width:17px;
+			height:17px;
+			background:url('images/close.png');
+			float:right;/*右浮动*/
+			margin-right:10px;
+			margin-top:10px;
+		}
+		.dlk h3 .colose:hover{
+			background:url('images/close.png') center bottom;
+		}
+		.dlk .txt{
+			margin-top:10px;
+			padding:0 20px;/*上下 左右*/
+			font-size:12px;
+			color:#666;
+		}
+		.dlk form p{
+			width:300px;
+			height:35px;
+			line-height:35px;
+			margin:20px auto 0;/*上 左右 下*/
+			
+		}
+		.dlk form p input{
+			width:260px;
+			height:35px;
+			margin-left:5px;
+			border:1px solid #ddd;
+			float:right;
+		}
+		.dlk form p input.sub{
+			border:none;
+			background:url('images/but_bg1.jpg');
+		}
+		</style>
+	</head>
+	<body>
+		<a class="but" href="javascript:">登陆</a> 
+		<div class="bg"></div>
+		<div class="dlk">
+			<h3>用户登陆<i class="colose"></i></h3>
+			<p class="txt"><img src="images/new.png " width="35" height="35" align="absmiddle" />号外！我的DIY主题管理功能上线了！即刻起，登录360手机美化，可以将您制作的DIY主题保存到360美化云端，还可以使用我的DIY主题管理等高级功能!</p>
+			<form>
+				<p class="zh">账号<input type="text" /></p>
+				<p class="mima">密码<input type="password" /></p>
+				<p class="mima"><input type="submit"  class="sub" value=""/></p>
+			</form>
+
+			<!--定位:确定元素的位置
+			固定定位      脱离文档流     把元素固定到浏览器窗口的某个位置
+			相对定位	  不脱离文档流
+			绝对定位      脱离文档流     
+			
+			绝对定位和相对定位配套的着用
+			除固定定位之外就用绝对定位
+			把需要定位的元素设置为绝对定位
+			把绝对定位的元素的参照物设置为相对定位-->
+		</div>
+		<script src="js/jquery.js"></script>
+		<script>
+		$(".but").click(function(){
+			//alert("被点击了")
+			//背景显示
+			$(".bg").show();
+			//登陆框显示
+			$(".dlk").show();
+			auto()
+		})
+		$(".colose").click(function(){
+			//alert("被点击了")
+			//背景消失
+			$(".bg").hide();
+			//登陆框消失
+			$(".dlk").hide();
+		})
+		//确定登陆框居中
+		function auto(){
+			//找到浏览器有多宽 多高
+			var _w_w = $(window).width();//宽
+			var _h_w = $(window).height();//高
+			//浏览器一半 减掉  登陆框一半
+			$(".dlk").css({
+				left:_w_w/2 - $(".dlk").width()/2,
+				top:_h_w/2 - $(".dlk").height()/2
+			})
+
+		}
+		//当动态改变浏览器窗口大小
+		$(window).resize(function(){
+			auto()
+		})
+		//拖动登陆框
+		$(".dlk h3").mousedown(function(e){
+			//得到鼠标坐标
+			var L = e.clientX;//水平
+			var T = e.clientY;//垂直
+			//得到登陆框的坐标
+			var _l = $(".dlk").offset().left;//水平
+			var _t = $(".dlk").offset().top;//垂直
+			var x = L - _l;
+			var y = T - _t;
+			//鼠标移动
+			$(document).mousemove(function(e){
+				var L = e.clientX;//水平
+				var T = e.clientY;//垂直
+				var n_l = L - x;
+				var n_t = T - y;
+				$(".dlk").css({
+					left:n_l,
+					top:n_t
+				});
+			})
+			$(document).mouseup(function(){
+				$(document).unbind("mousemove");
+				$(document).unbind("mouseup");
+				return false;
+			})
+		})
+		</script>
+	</body>
+</html>
