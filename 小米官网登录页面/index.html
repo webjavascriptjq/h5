@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            position: absolute;/*绝对定位 固定定位脱离文档流*/
+            width: 100%;
+            top:0;
+        }
+        #wrap{
+            position: relative;
+            width: 1050px;
+            margin: 130px auto 0;
+        }
+         #wrap .login{
+            width: 400px;
+             height: 526px;
+             background: #ffffff;
+             margin: auto;
+             margin-right: 0;
+        }
+        #wrap .login .header{
+            height: 80px;
+            line-height: 80px;
+            font-size: 22px;
+            text-align: center;
+            color: #999;
+
+        }
+        #wrap .login .header a{
+            color: #666;
+        }
+        #wrap .login .header a.active{
+            color: #ff9999;
+        }
+        #wrap .login form .text{
+            display: block;
+            width: 306px;
+            height: 22px;
+            padding: 15px 16px 13px 14px;
+            margin: 10px auto;
+            outline: none;/*文本框选中状态的光圈*/
+        }
+        #wrap .login form .submit{
+            display: block;
+            width: 340px;
+            height: 54px;
+            color: #ffffff;
+            background: #ff9900;
+            font-size: 24px;
+            margin: 10px auto;
+            border: 0;  /*按钮最外层的边框*/
+        }
+        .land{
+            width: 350px;
+            height: 60px;
+        }
+        .land p{
+            width: 200px;
+            height: 50px;
+            float: left;
+            background: url("image/LandMode.png");
+            margin: -60px 0 0 85px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <iframe src=" https://s1.mi.com/loginbanner.html" frameborder="0" width="100%" height="686" scrolling="no"></iframe><!--frameborder="0"：去除框架边框；scrolling="no"：去除滚动条-->
+    </div>
+    <div id="wrap">
+        <div class="login">
+            <div class="header">
+                <a href="" class="active">账号登录</a>
+                <span> | </span>
+                <a href="">扫码登录</a>
+            </div>
+            <form action="http://localhost:63342/%E5%B0%8F%E7%B1%B3%E5%AE%98%E7%BD%91%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2/index.html?_ijt=v7o2hu63ijhvcga1f18au6t7dl" method="post"><!--action：表单数据发送到什么地方  本例发送到本页面-->
+                <input type="text" name="user" class="text" placeholder="请输入用户名">
+                <input type="password" name="pwd" class="text" placeholder="请输入密码">
+                <input type="submit" value="立即登录" class="submit">
+            </form>
+            <fieldset style="border: 0; border-top: 1px solid #999999; width: 340px; margin: 50px auto;">
+                <legend align="center">
+                    其它方式登录
+                </legend>
+            </fieldset>
+            <div class="land">
+                <p class="qq"></p>
+                <p class="micro-blog"></p>
+                <p class="alipay"></p>
+                <p class="wechat"></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="md5.js"></script>
+    <script type="text/javascript">
+        var pwd='310029555';
+        //console.log($.md5(pwd));
+        console.log($.md5(pwd)+44*444);
+    </script>
+</body>
+</html>
