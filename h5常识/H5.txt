@@ -1,0 +1,3 @@
+升级版
+可以取代flash
+提供canvas、svg、audio、video标签，而这些标签又提供相应JS的API接口
