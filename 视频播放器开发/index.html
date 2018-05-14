@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 600px;
+            height: 500px;
+            margin: 50px auto;
+        }
+        .video{
+            width: 600px;
+            height: 400px;
+            background-image: url("images/bg.jpg");
+        }
+        .progress{
+            width: 600px;
+            height: 20px;
+        }
+        .currentTime,.allTime{/* ， ：并列选择器*/
+            width: 80px;
+            height: 20px;
+            float: left;
+        }
+        .pro_bat{
+            width: 440px;
+            height: 20px;
+            background: #cccccc;
+            float: left;
+            border-radius: 10px;
+        }
+        .controls{
+            width: 600px;
+            height: 80px;
+        }
+        .controls p{/*混合选择器*/
+            width: 65px;
+            height: 66px;
+            background: url("images/icon.png");
+            float: left;/*把所有的P都做一个浮动，要不然会竖排排列*/
+            margin: 10px;
+            cursor: pointer;
+        }
+        #prev{
+            background-position: -413px -214px;
+            margin-left: 40px;
+        }
+        #play{
+            background-position: -252px -122px;
+        }
+        #next{
+            background-position: -250px -214px;
+        }
+        #stop{
+            background-position: -574px -122px;
+        }
+        #volume{
+            background-position: -574px -214px;
+        }
+        #fullScreen{
+            background: url("images/fullscreen.png");
+        }
+        .pro{
+            width: 20px;
+            height: 20px;
+            background: #993333;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="video">
+        <video id="myVideo" width="600" height="400" src="video/录像2.mp4"><!--autoplay：自动播放；control：不自动播放，会出现控制条-->
+            您的浏览器不支持video视频播放，请您升级或更新浏览器！
+        </video>
+    </div>
+    <!--进度条-->
+    <div class="progress">
+        <div class="currentTime">00:00:00</div>
+        <div class="pro_bat">
+            <div class="pro">
+
+            </div>
+        </div>
+        <div class="allTime">00:00:00</div>
+    </div>
+    <!--控制按钮-->
+    <div class="controls"><!--P：6个按钮，按钮的位置要通过背景定位来确定-->
+        <p id="prev"></p>
+        <p id="play"></p>
+        <p id="next"></p>
+        <p id="stop"></p>
+        <p id="volume"></p><!--volume：音量-->
+        <p id="fullScreen"></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*什么元素 触发什么事件 实现什么效果*/
+    var oBtn=document.getElementById('play');
+    var myVideo=document.getElementById('myVideo');
+    var next=document.getElementById('next');
+    var onOff=true;/*定义一个开关存储视频播放的状态*/
+    oBtn.onclick=function () {
+        if(onOff)
+        {
+            myVideo.play();//播放视频
+            //onOff=false;
+            this.style.backgroundPosition='-413px -122px';//this：oBtn  谁的事件就指代谁
+        }else{
+            myVideo.pause();//暂停视频
+            //onOff=true;
+            this.style.backgroundPosition='-252px -122px';
+        }
+        onOff=!onOff;
+    };
+
+    //用一个数组来存储视频路径
+    var urls=['录像2.mp4','录像.mp4','唱歌.mp4'];
+    var n=0;/*切换视频只需切换序列号*/
+    next.onclick=function () {
+        n++;
+        if(n>2)
+        {
+            n=0;
+        }
+        myVideo.src='video/'+ urls[n];
+        myVideo.play();
+    }
+</script>
+</body>
+</html>
