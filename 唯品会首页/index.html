@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--CSS样式：行内样式 外链样式 内部样式-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-y: auto;
+        }
+        .wrap{
+            /*如果一个图片不写宽度，它会主动继承父级的宽度*/
+            /*height: 1000px;*/   /*因为外面盒子的高度会根据最里面盒子的高度进而被撑开*/
+            background: url("images/main_bg-b95eb8f68a.jpg");
+        }
+        .wrap-inner{
+            /*height: 662px;*/
+            background: url("images/tbg-b0f79b531e.jpg");
+        }
+        .wrap-floor{
+            position: relative;
+            z-index: 5;
+            /*height: 662px;*/
+            background: url("images/banner_01-647e6c4fae.jpg") center 62px no-repeat;
+        }
+        .wrap-banner{
+            position: relative;
+            /*只要有定位，就会有层级*/
+            z-index: 5;
+            /*height: 662px;*/
+            background: url("images/banner_02-524b8efbaa.jpg") center 362px no-repeat;
+        }
+        .wrap-banner-con{
+            position: relative;
+            width: 1000px;
+            height: 662px;
+            margin: 0 auto;
+        }
+        .banner-con-txt{
+            position: absolute;
+            left: 150px;
+            top: 100px;
+            width: 454px;
+            height: 459px;
+            background: url("images/banner_txt-2e8f434275.png");
+        }
+        .banner-con-ani{
+            position: absolute;
+            left: 609px;
+            top: 50px;
+            width: 250px;
+            height: 610px;
+            background: url("images/ani_v2.png") no-repeat;
+            animation: run 3.2s steps(8,end) infinite; /*steps：8步停止*/
+        }
+        @keyframes run {
+            0%{
+                background-position: 0 0;
+            }
+            43%{
+                background-position: 0 0;
+            }
+            50%{
+                background-position: -2080px 0;
+            }
+            93%{
+                background-position: -2080px 0;
+            }
+            100%{
+                background-position: -4160px 0;
+            }
+        }
+        .content{
+            height: 260px;
+            background: url("images/banner_bg_bottom-4ff5d3c11e.png") no-repeat center top;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="wrap-inner">
+            <div class="wrap-floor">
+                <div class="wrap-banner">
+                    <div class="wrap-banner-con">
+                        <div class="banner-con-txt"></div>
+                        <div class="banner-con-ani"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content"></div>
+    </div>
+</body>
+</html>
