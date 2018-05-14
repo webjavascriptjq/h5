@@ -1,0 +1,274 @@
+﻿html,body{
+    font-family:"Microsoft YaHei",sans-serif;
+    color: #333;
+    font-size: 14px;
+    position: relative;
+    background: #262626;
+}
+#header{
+    width: 100%;
+    height: 55px;
+    background: #0A246A;
+}
+#header .img{
+    width: 55px;
+    height: 55px;
+    float: left;
+    vertical-align:bottom;
+}
+.txt1{
+    position: absolute;
+    padding: 12px 0 0 55px;
+}
+.txt2{
+    position: absolute;
+    right: 30%;
+    color: #FFFFFF;
+    padding: 10px;
+}
+.txt1,.txt2{
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    color: #3C510C;
+    letter-spacing: 2px;
+    vertical-align: bottom;
+}
+
+form {
+    margin: 0;
+}
+#search_box {
+    position: absolute;
+    top: 12px;
+    right: 75px;
+    width: 201px;
+    height: 31px;
+    background: url(../images/search/bg_search_box.gif);
+}
+#search_box #s {
+    color: yellowgreen;
+    z-index: 999;
+    padding: 0;
+    margin: 6px 0 0 6px;
+    border: 0;
+    width: 159px;
+    background: none;
+    font-size: .8em;
+}
+#search_box #go {
+    float: right;
+    margin: 3px 4px 0 0;
+}
+
+.button1,.button2{
+    margin: -30px 10px 0 0;
+    float: right;
+    background-color:#6fba26;
+    padding:10px;
+    position:relative;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+    text-decoration:none;
+    color:#fff;
+    background-image: linear-gradient(bottom, rgb(100,170,30) 0%, rgb(129,212,51) 100%);
+    box-shadow: inset 0 1px 0 #b2f17f, 0 6px 0 #3d6f0d;
+    border-radius: 5px;
+}
+
+.button1,.button2:active {
+    top:38px;
+    background-image: linear-gradient(bottom, rgb(100,170,30) 100%, rgb(129,212,51) 0%);
+    box-shadow: inset 0 1px 0 #b2f17f, inset 0 -1px 0 #3d6f0d;
+    color: #156785;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+    background: rgb(44,160,202);
+}
+
+/*作品介绍*/
+.section-title{
+    display: block;
+    width: 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    letter-spacing: 1px;
+}
+.section-title span{
+    display: inline-block;
+    position: relative;
+}
+.section-title span:before,
+.section-title span:after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    top: .53em;
+    width: 400%;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.section-title span:before{
+    right: 100%;
+    margin-right: 45px;
+}
+.section-title span:after{
+    left: 100%;
+    margin-left: 45px;
+}
+.news{
+    margin: 0 auto;
+    width: 70%;
+    height: 570px;
+    background: #635d5d;
+}
+.news1{
+    float: left;
+    width: 33.33%;
+    position: relative;
+    padding: -1px 15px 0 15px;
+    border-radius:1rem;
+}
+.details{
+    display: block;
+    background-clip:padding-box;
+    border: 0 none;
+    margin-bottom: 10px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    line-height: 1.4;
+}
+.details2{
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    height: 180px;
+    margin: 0 0 20px;
+}
+.news img{
+    display: block;
+    width: 65%;
+    overflow: hidden;
+    height: 180px;
+    margin: 30px 0 15px 60px;
+    padding: 0 0 20px 0;
+}
+.news img:hover{
+    box-shadow: -5px -5px 10px blue;
+}
+.news span{
+    width: 145px;
+    height: 23px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin: 0 0 -10px 90px;
+}
+/*介绍*/
+.myself{
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 14%;
+    height: 330px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    font-weight: 400;
+    font-size: 16px;
+    color: #788087;
+}
+.myself .myself1 img{
+    float: left;
+    margin: 15px -60px 0 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.myself .myself1 h3{
+    margin: 0 15px 0 0;
+    padding: 7px 0 0 0;
+    color: #788087;
+}
+.myself .myself2{
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+    padding-bottom: 20px;
+    padding-top:20px;
+}
+.myself .myself2 dl{
+    display: inline-block;
+    width: 21%;
+    text-align: center;
+}
+
+.myself .myself3{
+    padding: 16px 24px;
+    float: left;
+    width: 50%;
+    height: 30px;
+    z-index: 999;
+}
+.myself3{
+    float: left;
+}
+.myself3 img{
+    margin: 5px 0 0 0;
+}
+.first,.second,.third,.fourth{
+    margin: 0 0 10px 0;
+}
+
+/*随笔*/
+.article .ul2 .li1{
+    display: none;
+}
+.article{
+    position: fixed;
+    left: 0;
+    bottom: -10px;
+    width: 14%;
+    height: 155px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+    font-weight: 400;
+    font-size: 16px;
+    color: #788087;
+}
+
+.article h3{
+    border-left: 3px solid #cf2730;
+    margin-bottom: 20px;
+    color: #788087;
+}
+.article ul{
+    height: 45px;
+    overflow-y: hidden;
+}
+.article ul li{
+    margin-bottom: 10px;
+}
+.show{
+    float: right;
+}
+.read{
+    color: #bbb;
+    vertical-align: top;
+}
+.flex{
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+.flex span{
+    vertical-align: middle;
+}
+.flex img{
+    width: 10px;
+    height: 10px;
+    margin: 0 0 -4px 0;
+    color: #788087;
+}

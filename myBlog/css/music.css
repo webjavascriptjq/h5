@@ -1,0 +1,35 @@
+body{
+    position: relative;
+}
+canvas{
+    display: block;
+    background: black;
+}
+button{
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    text-decoration: none;
+    width: 180px;
+    height: 80px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 23px;
+    font-weight: normal;
+    font-family: "华文楷体";
+    background: #1a2129;
+    color: red;
+    line-height: 1.4;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.music{
+    position: absolute;
+    left: 96%;
+    top: 0;
+}

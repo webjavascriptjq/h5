@@ -1,0 +1,16 @@
+#LoopDiv{margin: 0 auto;position: relative; height: 300px;}
+h3{text-align: center;line-height: 60px;color: aliceblue}
+.mKeBanner,.mKeBanner div{text-align:center;}
+.imageflow img{ -webkit-box-shadow: 2px 2px 2px 2px hsla(0,0%,0%,0.1); box-shadow: 2px 2px 2px 2px hsla(0,0%,0%,0.1); width: 150px; height: 220px;}
+.imageflow{overflow:hidden; position:relative; left: 50px; top: -140px; text-align:left; visibility:hidden; width:1200px;}
+.imageflow img{border:none; position:absolute; top:0; visibility:hidden; -ms-interpolation-mode:bicubic}
+.imageflow p{margin:0 auto; text-align:center}
+.imageflow .loading{border:1px solid; height:15px; left:50%; margin-left:-106px; padding:5px; position:relative; visibility:visible; width:50px}
+.imageflow .loading_bar{height:15px; visibility:visible; width:1%}
+.imageflow .caption{font-weight:bold; position:relative; text-align:center; z-index:997}
+.imageflow .scrollbar{border-bottom:1px solid; position:relative; visibility:hidden; z-index:998; height:1px}
+.imageflow .slider{background-image:url(../../Images/Index/slider.png); background-repeat:no-repeat; height:14px; margin:-6px 0 0 -7px; position:absolute; width:14px; z-index:10002}
+.imageflow .images{overflow:hidden; white-space:nowrap}
+.imageflow .button{cursor:pointer; height:17px; position:relative; width:17px}
+.imageflow .previous{background:url(../images/slide/button_left.png) top left no-repeat; float:left; margin:-7px 0 0 -30px}
+.imageflow .next{background:url(../images/slide/button_right.png) top left no-repeat; float:right; margin:-7px -30px 0 30px}

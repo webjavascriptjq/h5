@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dale-博客</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/land.css">
+    <link rel="stylesheet" href="../css/picture.css">
+    <style>
+        body{
+            background: #434343;
+        }
+        #box1{
+            width: 930px;
+            background: #2d2d2e;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        img{
+            float: left;
+            margin: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+        }
+        img:hover{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <span class="txt1">Dale-博客</span>
+    <span class="txt2">专注经典三十年，原创好作品尽在这里！</span>
+    <img src="../images/logo.jpg" alt="myLogo">
+    <form action="">
+        <input class="button1" type="button" value="注册">
+        <input class="button1" type="button" value="登陆">
+    </form>
+</div>
+<!--登陆框-->
+<div class="dlk">
+    <h3>
+        用户登录
+        <i class="close"></i>
+    </h3>
+    <p class="txt">
+        <img src="../images/登陆框/new.png" alt="icon" align="absmiddle" ><!--align:'absmiddle'图片和后面文字的对齐方式:绝对居中-->
+        号外！登录即可收藏本站文章，并随时享受高级VIP功能!
+    </p>
+    <form action="http://localhost:63342/%E5%BC%B9%E7%AA%97/index.html?" method="post">
+        <p class="Id">
+            账号
+            <input type="text" title="">
+        </p>
+        <p class="pwd">
+            密码
+            <input type="password" title="">
+        </p>
+        <p class="Dl">
+            <input type="submit" value="" class="sub">
+        </p>
+    </form>
+</div>
+<!--注册-->
+
+<!--导航栏-->
+<div id="nav">
+    <ul class="pgwMenu">
+        <li><a class="selected" href="">首页</a></li>
+        <li class="active"><a href="">作品区</a></li>
+        <li><a href="">留言区</a></li>
+        <li><a href="">学习心得</a></li>
+    </ul>
+</div>
+
+<!--客服-->
+<div class="fixedBox">
+    <ul class="fixedBoxList">
+        <li class="fixeBoxLi Service">
+            <span class="fixeBoxSpan"></span><strong>在线客服</strong>
+            <div class="ServiceBox">
+                <div class="bjfff"></div>
+                <dl>
+                    <dt><img src="../images/客服/Service1.jpg"></dt>
+                    <dd><strong>在线QQ客服</strong>
+                        <P class="p1">9:00-22:00</P>
+                        <P class="p2"><a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2938610001&amp;site=qq&amp;menu=yes" target="_blank">点击交谈</A></P>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img src="../images/客服/Service2.jpg"></dt>
+                    <dd><strong>网页在线客服</strong>
+                        <P class="p1">9:00-22:00</P>
+                        <P class="p2"><a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2938610001&amp;site=qq&amp;menu=yes" target="_blank">点击交谈</A></P>
+                    </dd>
+                </dl>
+            </div>
+        </li>
+        <li class="fixeBoxLi Home"><a href="http://www.lanrenzhijia.com/"><span class="fixeBoxSpan"></span><strong>返回首页</strong> </a> </li>
+        <li class="fixeBoxLi BackToTop"><span class="fixeBoxSpan"></span><strong>返回顶部</strong> </li>
+    </ul>
+</div>
+
+<!--懒加载-->
+<div id="box1">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+    <img class="lazy" alt="picture" data-original="../images/slide/e.png">
+</div>
+
+<script src="../js/jquery.LazyLoad.js"></script>
+<script src="../js/jquery-3.2.1.js"></script>
+<script src="../js/picture.js"></script>
+<script>
+    /*懒加载*/
+    $(function () {
+        $("img.lazy").lazyload({
+            threshold : 200,
+            placeholder:"../images/slide/loading.png",
+            event : "mouseover",
+            effect : "fadeIn"
+        });
+    });
+
+    /*客服*/
+    $(function(){
+        $(".side ul li").hover(function(){
+            $(this).find(".sidebox").stop().animate({"width":"124px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#ae1c1c"})
+        },function(){
+            $(this).find(".sidebox").stop().animate({"width":"54px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})
+        });
+    });
+    function goTop(){
+        $('html,body').animate({'scrollTop':0},300);
+    }
+
+</script>
+
+
+</body>
+</html>

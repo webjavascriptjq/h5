@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dale-博客</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/slide.css">
+    <link rel="stylesheet" href="../css/land.css">
+    <link rel="stylesheet" href="../css/picture.css">
+    <link rel="stylesheet" href="../css/1.css">
+</head>
+<body>
+    <div id="div">
+        <div id="header">
+            <span class="txt1">Dale-博客</span>
+            <span class="txt2">专注经典三十年，原创好作品尽在这里！</span>
+            <img class="img" src="../images/logo.jpg" alt="myLogo">
+
+            <form action="">
+                <input class="button1" type="button" value="登陆">
+            </form>
+        </div>
+        <!--搜索框-->
+        <div id="search_box">
+            <form class="form1" id="search_form" method="post" action="#">
+                <input type="text" id="s" value="请输入您想搜索的内容" class="swap_value" title=""/>
+                <input type="image" src="../images/search/btn_search_box.gif" width="27" height="24" id="go" title="" />
+            </form>
+        </div>
+        <!--介绍-->
+        <div class="myself">
+            <div class="myself1">
+                <img src="../images/介绍/logo.jpg" alt="">
+                <h3>Dale博客</h3>
+            </div>
+            <div class="myself2">
+                <dl>
+                    <dt>原创</dt>
+                    <dd>10</dd>
+                </dl>
+                <dl>
+                    <dt>粉丝</dt>
+                    <dd>8</dd>
+                </dl>
+                <dl>
+                    <dt>喜欢</dt>
+                    <dd>10</dd>
+                </dl>
+                <dl>
+                    <dt>评论</dt>
+                    <dd>3</dd>
+                </dl>
+            </div>
+            <div class="myself3">
+                <div class="first">
+                    <ul>
+                        <li><span>等级：</span></li>
+                        <li><img src="../images/介绍/1.png" alt=""></li>
+                    </ul>
+                </div>
+                <div class="second">
+                    <ul>
+                        <li><span>访问量：</span></li>
+                        <li><span class="span1">100+</span></li>
+                    </ul>
+                </div>
+                <div class="third">
+                    <ul>
+                        <li><span>积分：</span></li>
+                        <li><span class="span1">1000+</span></li>
+                    </ul>
+                </div>
+                <div class="fourth">
+                    <ul>
+                        <li><span>排名：</span></li>
+                        <li><span class="span1">200000+</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--随笔-->
+        <div class="article">
+            <h3>文章分类</h3>
+            <ul class="ul2">
+                <li>
+                    <a href="">渲染引擎的定义</a>
+                    <div class="show">
+                        <span class="read">1篇</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="">float浮动</a>
+                    <div class="show">
+                        <span class="read">1篇</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <a href="">前端事件的监听</a>
+                    <div class="show">
+                        <span class="read">1篇</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <a href="">CSS层叠样式表</a>
+                    <div class="show">
+                        <span class="read">1篇</span>
+                    </div>
+                </li>
+                <li class="li1">
+                    <a href="">数组方法大集合</a>
+                    <div class="show">
+                        <span class="read">1篇</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="flex">
+                <span class="span2">展开</span>
+                <img class="img2" src="../images/flex.png" alt="">
+            </div>
+        </div>
+
+        <!--登陆框-->
+        <div class="dlk">
+            <h3>
+                用户登录
+                <i class="close"></i>
+            </h3>
+            <p class="txt">
+                <img src="../images/登陆框/new.png" alt="icon" align="absmiddle" >
+                号外！登录即可收藏本站文章，并随时享受高级VIP功能!
+            </p>
+            <form action="http://localhost:63342/%E5%BC%B9%E7%AA%97/index.html?" method="post">
+                <p class="Id">
+                    账号
+                    <input type="text" title="">
+                </p>
+                <p class="pwd">
+                    密码
+                    <input type="password" title="">
+                </p>
+                <p class="Dl">
+                    <input type="submit" value="" class="sub">
+                </p>
+            </form>
+        </div>
+        <!--注册-->
+
+        <!--轮播-->
+        <div id="LoopDiv">
+            <input id="S_Num" type="hidden" value="4" />
+            <div id="starsIF" class="imageflow">
+                <img src="../images/slide/1.jpg" longdesc="#" alt="Picture" />
+                <img src="../images/slide/2.jpg" longdesc="#" alt="Picture" />
+                <img src="../images/slide/3.jpg" longdesc="#" alt="Picture" />
+                <img src="../images/slide/4.jpg" longdesc="#" alt="Picture" />
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <!--客服-->
+        <div class="fixedBox">
+            <ul class="fixedBoxList">
+                <li class="fixeBoxLi Service">
+                    <span class="fixeBoxSpan"></span><strong>在线客服</strong>
+                    <div class="ServiceBox">
+                        <div class="bjfff"></div>
+                        <dl >
+                            <dt><img src="../images/客服/Service1.jpg"></dt>
+                            <dd><strong>在线QQ客服</strong>
+                                <P class="p1">9:00-22:00</P>
+                                <P class="p2"><a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2938610001&amp;site=qq&amp;menu=yes" target="_blank">点击交谈</A></P>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt><img src="../images/客服/Service2.jpg"></dt>
+                            <dd><strong>网页在线客服</strong>
+                                <P class="p1">9:00-22:00</P>
+                                <P class="p2"><a title="点击这里给我发消息" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2938610001&amp;site=qq&amp;menu=yes" target="_blank">点击交谈</A></P>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="fixeBoxLi Home"><a href="http://localhost:63342/%E6%A1%88%E4%BE%8B/myBlog/html/index2.html?_ijt=3mqkbbn6fambttqs04nbr9fjue"><span class="fixeBoxSpan"></span><strong>返回首页</strong> </a> </li>
+                <li class="fixeBoxLi BackToTop"><span class="fixeBoxSpan"></span><strong>返回顶部</strong> </li>
+            </ul>
+        </div>
+
+        <!--成长与梦想-->
+        <h3 class="section-title"><span>学习心得</span></h3>
+        <div class="about-grids">
+            <div class="about-grid1">
+                <div class="about-grid-left">
+                    <img src="../images/1.png"  alt=" " />
+                    <h4>什么是成长</h4>
+                    <p>成长是你意识到你要忍受孤独，不是一时的，而是无处不在的孤独。</p>
+                </div>
+                <div class="about-grid-right">
+                    <img src="../images/2.png" alt=" " />
+                    <h4>什么是梦想</h4>
+                    <p>不只是为了单纯的活着,而是渴望成就自己的一番事业，不沉溺于纸醉金迷的现在。</p>
+                </div>
+            </div>
+        </div>
+
+        <!--作品介绍-->
+        <h3 class="section-title"><span>作品展示区</span></h3>
+        <div class="news">
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/3D%E6%97%8B%E8%BD%AC%E7%88%B1%E5%BF%83/index2.html?_ijt=v4prd7j3bagq11o3dcetfu5eo3">
+                    <img src="../images/slide/a.png" alt="请稍候，正在加载中...">
+                    <span class="details2">3D旋转爱心</span>
+                </a>
+            </div>
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/canvas%E9%9B%AA%E8%8A%B1%E9%A3%98%E8%90%BD/index.html?_ijt=v4prd7j3bagq11o3dcetfu5eo3">
+                    <img src="../images/slide/b.png" alt="请稍候，正在加载中...">
+                    <span class="details2">canvas雪花飘落</span>
+                </a>
+            </div>
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/%E8%8A%92%E6%9E%9Ctv%E8%A7%86%E9%A2%91%E7%82%B9%E6%92%AD/index.html?_ijt=mlia4vk76fv675sr65f97sn6k4">
+                    <img src="../images/slide/c.png" alt="请稍候，正在加载中...">
+                    <span class="details2">芒果TV轮播</span>
+                </a>
+            </div>
+            <br>
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/index.html?_ijt=v4prd7j3bagq11o3dcetfu5eo3">
+                    <img src="../images/slide/d.png" alt="请稍候，正在加载中...">
+                    <span class="details2">图片懒加载</span>
+                </a>
+            </div>
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/%E9%95%9C%E9%9D%A2%E8%BD%AE%E6%92%AD/index.html?_ijt=mlia4vk76fv675sr65f97sn6k4">
+                    <img src="../images/slide/e.png" alt="请稍候，正在加载中...">
+                    <span class="details2">磨砂轮播</span>
+                </a>
+            </div>
+            <div class="news1">
+                <a class="details" href="http://localhost:63342/%E6%A1%88%E4%BE%8B/%E5%94%AF%E5%93%81%E4%BC%9A%E9%A6%96%E9%A1%B5/index.html?_ijt=mlia4vk76fv675sr65f97sn6k4">
+                    <img src="../images/slide/f.png" alt="请稍候，正在加载中...">
+                    <span class="details2">仿唯品会首页</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../js/picture.js"></script>
+    <script src="../js/slide.js"></script>
+    <script>
+        /*下拉按钮*/
+        $('.img2').click(function () {
+            $('.ul2').toggle(function () {
+                if('.li1').css('display')=='none'){
+                    $('.img2').show();
+                    $('ul2').hide();
+                } else {
+                    $('.img2').attr('src','../images/flex2.png');
+                    $('ul2').show();
+                }
+            });
+        })
+
+        /*搜索框*/
+        function glb_searchTextOnfocus(obj) {
+            if (obj.value == '请输入您想要的作品...')
+                obj.value = '';
+            obj.style.color = '#333';
+        }
+        function glb_searchTextOnBlur(obj) {
+            if (obj.value == '') {
+                obj.value = '请输入您想要的作品...';
+                obj.style.color = '#98BC00';
+            } else {
+                obj.style.color = '#333';
+            }
+        }
+
+        /*客服*/
+        jQuery(function(){
+            jQuery(".fixedBox ul.fixedBoxList li.fixeBoxLi").hover(
+                function (){
+                    jQuery(this).find('span.fixeBoxSpan').addClass("hover");
+                    jQuery(this).addClass("hover");
+                },
+                function (){
+                    jQuery(this).find('span.fixeBoxSpan').removeClass("hover");
+                    jQuery(this).removeClass("hover");
+                }
+            );
+            jQuery('.BackToTop').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+            var oDate=new Date();
+            var iHour=oDate.getHours();
+            if(iHour>8 && iHour<22){
+                jQuery(".Service").addClass("startWork");
+                jQuery(".Service").removeClass("Commuting");
+            }else{
+                jQuery(".Service").addClass("Commuting");
+                jQuery(".Service").removeClass("startWork");
+            }
+        });
+        jQuery(function(){
+            jQuery('.listLeftMenu dl dt').click(function(){
+                var but_list=jQuery(this).attr('rel');
+                if(but_list=='off'){
+                    jQuery(this).attr('rel','on');
+                    jQuery('.listLeftMenu dl').removeClass('off');
+                    jQuery(this).parent().addClass('on');
+                }else{
+                    jQuery(this).attr('rel','off');
+                    jQuery(this).parent().removeClass('on');
+                    jQuery(this).parent().addClass('off');
+                }
+            });
+        });
+
+        /*登陆框*/
+        $('.button1').click(function () {
+            $('.dlk').show();
+            auto();
+        });
+        $('.close').click(function () {
+            $('.dlk').hide();
+        });
+        function auto() {
+            var _w_w=$(window).width();
+            var _w_h=$(window).height();
+            $(".dlk").css({
+                left:_w_w/2 - $(".dlk").width()/2,
+                top:_w_h/2 - $(".dlk").height()/2
+            })
+        }
+        $(window).resize(function () {
+            auto();
+        });
+        $('.dlk h3').mousedown(function (e) {
+            var L=e.clientX;
+            var T=e.clientY;
+            var _l=$('.dlk').offset().left;
+            var _t=$('.dlk').offset().top;
+            var x=L-_l;
+            var y=T-_t;
+            $(document).mousemove(function (e) {
+                var L=e.clientX;
+                var T=e.clientY;
+                var n_l=L-x;
+                var n_t=T-y;
+                $(".dlk").css({
+                    left:n_l,
+                    top:n_t
+                });
+            });
+            $(document).mouseup(function () {
+                $(document).unbind('mousemove');
+                $(document).unbind('mosueup');
+                return false;
+            })
+        });
+
+
+
+        /*萌主播*/
+        var oSpan=document.getElementById('hover');
+        var oImg=document.getElementById('img');
+        var sum=1;  //用数字保存点击的次数
+        var onOff=true;  //做一个开关来保存按钮的点击状态（能不能点击）
+        var timer =null;
+        oSpan.onclick=function () {  //点击实现图片切换 改变图片路径
+            if(onOff)
+            {
+                if(sum == 0)
+                {
+                    oImg.src='../images/右下角/0.gif';
+                    sum++;
+                }else if(sum == 1){
+                    oImg.src='../images/右下角/1.gif';
+                    sum++;
+                }else if(sum == 2){
+                    oImg.src='../images/右下角/2.gif';  //当显示为这张图片的时候，两秒之内再次点击不会发生变化
+                    sum=1;
+                    onOff=false;
+                    pause();
+                }
+                //console.log(sum);
+            }else if( sum == 2 && !onOff ){
+                clearTimeout(timer);
+                pause();
+            }
+        };
+        function pause() {
+            timer=setTimeout(function () {
+                oImg.src='../images/右下角/0.gif';
+                onOff=true;
+            },2000);
+        }
+
+        /*客服*/
+        $(function(){
+            $(".side ul li").hover(function(){
+                $(this).find(".sidebox").stop().animate({"width":"124px"},200).css({"opacity":"1","filter":"Alpha(opacity=100)","background":"#ae1c1c"})
+            },function(){
+                $(this).find(".sidebox").stop().animate({"width":"54px"},200).css({"opacity":"0.8","filter":"Alpha(opacity=80)","background":"#000"})
+            });
+        });
+        //回到顶部函数
+        function goTop(){
+            $('html,body').animate({'scrollTop':0},300);
+        }
+    </script>
+
+
+</body>
+</html>
