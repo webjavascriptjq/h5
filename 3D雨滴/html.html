@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            display: block;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<!--img标签和文本有垂直对齐方式，一般情况下默认基线对齐，不管文本是否存在-->
+<!--canvas就相当于img图片标签，但是我们可以在这个图片标签上通过JS绘图，同时他也拥有图片标签的属性-->
+
+<canvas id="canvas">你的浏览器不支持canvas，请您升级或更换浏览器</canvas>
+<script type="text/javascript">
+    var can=document.getElementById('canvas');
+    var ctx=can.getContext('2d');
+    //设置画布的宽高，这样才能全屏   window：浏览器  innerWidth：内容的宽
+    var w=can.width=window.innerWidth,
+        h=can.height=window.innerHeight;
+    //监听浏览器，实现跟随窗口缩放
+    window.onresize=function () {
+        w=can.width=window.innerWidth;
+        h=can.height=window.innerHeight;
+    };
+    //绘制矩形框
+        //实心圆
+        //ctx.fillStyle='red';
+        //ctx.fillRect(100,100,50,50);
+        // 空心圆
+        //ctx.strokeStyle='white';
+        //ctx.strokeRect(200,200,50,50);
+    //绘制圆形
+        //绘制实心圆
+        //ctx.arc(300,300,50,0,Math.PI*2,false);
+        //ctx.fillStyle='blue';
+        //ctx.fill();
+        //绘制空心圆
+        //ctx.arc(600,600,60,0,Math.PI*2,true);
+        //ctx.strokeStyle='pink';
+        //ctx.stroke();
+
+    //动画原理
+    /*var y=0;
+    ctx.fillStyle='blue';
+    setInterval(function () {
+        y++;
+        ctx.clearRect(0,0,w,h);  //清空画布
+        ctx.fillRect(100,y,50,50);
+    },100);*/
+
+    //创建雨滴类（用面向对象）    人类原型大猩猩
+    function Drop() {
+
+    }
+    //往Drop雨滴对象添加原型
+    Drop.prototype={
+        //x,y初始化
+        init:function () {
+            this.x=random(0,w);   //0-w的随机数
+            this.y=0;
+            this.vy=random(4,5);  //随机速度值
+            this.h=random(h*0.8,h*0.9);  //雨滴掉落形成涟漪时的范围
+            this.r=1;  //初始圆形的半径值
+            this.vr=1;  //初始圆形半径变化值
+            this.a=1;   //涟漪透明度的初始值
+            this.va=0.96;  //涟漪透明度变化的值
+        },
+        //绘制
+        draw:function () {
+            if(this.y>this.h)
+            {
+                //绘制圆形
+                ctx.strokeStyle="rgba(0,255,255,"+this.a+")";
+                ctx.beginPath();  //开始路径（相当于“提笔”换位置重新在绘制）
+                ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
+                ctx.stroke();
+            }else {
+                //绘制矩形
+                ctx.fillStyle='#3fc';
+                ctx.fillRect(this.x,this.y,2,10);
+            }
+
+            //每绘制完成一次就更新一次速度值
+            this.update();
+        },
+        //更改坐标位置和y轴下落的速度值
+        update:function () {
+            if(this.y<this.h)
+            {
+                this.y +=this.vy;  //更新y轴下落的速度值
+            }else {
+                //绘制圆形
+                if(this.a>0.03)
+                {
+                    this.r +=this.vr;
+                    if(this.r>50)  //半径大50漪变模糊
+                    {
+                        this.a *=this.va;
+                    }
+                }else {
+                    this.init();
+                }
+            }
+        }
+    };
+    /*var drop=new Drop();//实例化一个雨滴
+    drop.init();
+    setInterval(function () {
+        //ctx.clearRect(0,0,w,h);
+        ctx.fillStyle='rgba(0,0,0,0.1)';  //透明颜色
+        ctx.fillRect(0,0,w,h);  //绘制矩形
+        drop.draw();  //绘制雨滴
+    },30);*/
+    var drops=[];  //用数组来存储多个实例化对象
+    for(var i=0; i<50; i++)
+    {
+        setTimeout(function () {
+            var drop=new Drop();
+            drop.init();
+            drops.push(drop);
+        },i*200);
+    }
+    //绘制多个同时下落的雨滴
+    //方法一（有bug）
+    /*setInterval(function () {
+        ctx.fillStyle='rgba(0,0,0,0.1)';
+        ctx.fillRect(0,0,w,h);
+        for(var i=0; i<drops.length; i++)
+        {
+            drops[i].draw();
+        }
+    },30);*/
+    //解决方法二的不兼容问题
+    window.requestAnimationFrame=(function () {
+       return window.requestAnimationFrame ||
+           window.webkitRequestAnimationFrame ||
+           window.mozRequestAnimationFrame ||
+           function (callback) {
+                window.setTimeout(callback,1000 / 60);  //当浏览器每16.7s更新一次画面，就执行一次这个函数
+           }
+    })();
+    //方法二，但是也存在着不兼容的问题
+    function move() {
+        ctx.fillStyle='rgba(0,0,0,0.1)';
+        ctx.fillRect(0,0,w,h);
+        for(var i=0; i<drops.length; i++)
+        {
+            drops[i].draw();
+        }
+        requestAnimationFrame(move);
+    }
+    move();
+    //封装随机数
+    function random(min,max) {
+        return Math.random()*(max-min)+min;  //min-max
+    }
+</script>
+</body>
+</html>

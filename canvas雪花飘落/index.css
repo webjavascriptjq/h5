@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+}
+canvas{/*因为canvas标签宽高为2比1，canvas是根据父元素定位的,但是我们要做成和浏览器等宽等高的，于是可以给html，body加个100%，但是canvas和img一样，都有个垂直对齐方式，进而多出来了3、4px，还得在canvas标签里加个display:block；也可以直接给canvas标签加个absolute*/
+    background: #000;
+    width: 100%;
+    height: 100%;
+    display: block;
+}

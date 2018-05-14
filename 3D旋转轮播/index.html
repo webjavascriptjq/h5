@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+            background: black;
+        }
+        #perspective{
+            perspective: 800px;
+        }
+        #wrap{
+            position: relative;
+            width: 133px;
+            height: 200px;
+            border: 1px solid #ffffff;
+            margin: 150px auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg) rotateY(0deg);
+        }
+        #wrap img{
+            position: absolute;
+            top: 0;
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="perspective"></div>
+    <div id="wrap">
+        <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+        <img src="images/1.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+        <img src="images/2.jpg" alt="">
+        <img src="images/3.jpg" alt="">
+        <img src="images/4.jpg" alt="">
+    </div>
+    <script type="text/javascript">
+        window.onload=function () {
+            var oImg=document.getElementsByTagName('img');
+            var oWrap=document.getElementById('wrap');
+            var Deg=360/oImg.length;
+            Array.prototype.forEach.call(oImg,function (el,index) {
+                el.style.transform='rotateY('+Deg*index+'deg) translateZ(350px)';
+                el.style.zIndex=-index;
+                el.style.transition='transform 1s'+index*0.1+'s';
+            });
+            /*
+                1.拖拽相册实际上改变的是 容器的旋转度数
+                2.旋转度数数值的改变是依据 鼠标的运动距离
+                    每一次拖的时候的距离差，也就是说鼠标每移动一次，就会获得一个鼠标的坐标
+                        距离差 = 现在的鼠标坐标 - 上一次鼠标坐标
+                         第一次移动点击的时候，就是第一个就得值
+                改变后的总度数 是要累加距离差的值的
+            */
+            var nowX,nowY,
+                lastX,lastY,
+                minusX,minusY,
+                roX=-10,roY=0;
+            document.onmousedown=function (ev) {
+                var oEv =ev || window.event;
+                lastX=oEv.clientX;lastY=oEv.clientY;
+                //console.log(ev.clientX,ev.clientY);
+                this.onmousemove=function () {
+                    var ev=ev||window.event;
+                    nowX=ev.clientX;
+                    nowY=ev.clientY;
+
+                    minusX=nowX-lastX;
+                    minusY=nowY-lastY;
+
+                    roY+=minusX;
+                    roX-=minusY;
+
+                    oWrap.style.transform='rotateX('+roX+'deg) rotateY('+roY+'deg)';
+
+                    lastX=nowX;
+                    lastY=nowY;
+                };
+                this.onmouseup=function () {
+                    this.onmousemove=null;
+                    this.onmouseup=null;
+                };
+            }
+        }
+    </script>
+</body>
+</html>
