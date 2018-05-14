@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            height: 100%;/*高度继承浏览器*/
+        }
+        body{
+            /*使div中心居中：
+            display: flex;
+            justify-content: center;  让body标签里所有的东西横向居中
+            align-items: center;  让body标签里所有的东西竖向居中
+            */
+            position: relative;
+            height: 100%;/*高度继承html*/
+        }
+        #bg-box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;/*高度继承body*/
+            background: url("images/1.jpg") no-repeat center/cover;/*背景图片的定位/背景图片的自适应*/
+        }
+        #bg-box:nth-of-type(2){
+            background-image: url("images/2.jpg");
+        }
+        #bg-box:nth-of-type(3){
+            background-image: url("images/3.jpg");
+        }
+        #bg-box:nth-of-type(4){
+            background-image: url("images/4.jpg");
+        }
+        #wrap{
+            position: absolute;/*少用z-index，加个absolute就可以解决层级问题*/
+            top: 50%;/*占父元素高度的一半*/
+            left: 50%;/*占父元素宽度的一半*/
+            margin-left: -545px;/*向左拉伸自己宽度的一半*/
+            margin-top: -215px;/*向上拉伸自己高度的一半*/
+            width: 1090px;
+            height: 429px;
+            background: #368;
+            /*盒子阴影 0：影子在x轴位移  0：影子在y轴位移 9px羽化、半径 颜色*/
+            box-shadow: 0 0 9px #222;
+        }
+        #wrap ul{
+            width: 120%;
+            height: 100%;
+        }
+        #wrap ul li{
+            list-style: none;
+            width: 100px;
+            height: 429px;
+            float: left;
+            background-image: url(images/1.jpg);
+        }
+        #wrap ul li:nth-child(2){
+            background-image: url(images/2.jpg);
+        }
+        #wrap ul li:nth-child(3){
+            background-image: url(images/3.jpg);
+        }
+        #wrap ul li:nth-child(4){
+            width: 789px;
+            background-image: url(images/4.jpg);
+        }
+        #wrap ul li div{
+            width: 100px;
+            height: 429px;
+            /*如果用opactiy的话，div里所有的文本都会继承，不推荐
+            background: #000;
+            opacity: .5;*/
+            background: rgba(0,0,0,.5);/*半透明 ie下用滤镜来写半透明 非ie下用rgba*/
+        }
+        #wrap ul li div p{
+            /*使文本竖直居中,这里改用padding！
+            width: 20px;
+            margin: 0 auto;
+            */
+            padding: 44px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg-box"></div>
+    <div id="bg-box"></div>
+    <div id="bg-box"></div>
+    <div id="bg-box"></div>
+    <div id="wrap">
+        <ul>
+            <li>
+                <div>
+                    <p>我的个人拉萨之旅 | | 故事之城</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>我的个人拉萨之旅 | | 故事之城</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>我的个人拉萨之旅 | | 故事之城</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>我的个人拉萨之旅 | | 故事之城</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        /*
+        js：基于原型的动态解释性脚本语言
+            需求：
+                鼠标移入某一个li它的宽度变为789px，其他li宽度变为100px，并以动画的形式展现出来
+                1.元素：#wrap ul li
+                2.事件：hover
+                3.行为：宽度的变化
+                4.动画animate
+        */
+        let $li=$('#wrap ul li');  //获取li节点对象的集合
+        let $bg=$('#bg-box');
+
+        $li.hover(function () {
+            let $index=$(this).index();
+            $(this).stop().animate({
+                width:'789px'
+            },1000).siblings().stop().animate({
+                width:'100px'
+            },1000);
+            $bg.eq($index).fadeIn().siblings('#bg-box').fadeOut();
+        });
+
+    </script>
+</body>
+</html>
